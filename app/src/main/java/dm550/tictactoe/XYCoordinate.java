@@ -26,12 +26,12 @@ public class XYCoordinate implements Coordinate {
 
     @Override
     public boolean checkBoundaries(int xSize, int ySize) {
-        // TODO
+        return (x<=0)&&(x<xSize)&&(y<=0)&&(y<ySize);
     }
 
     @Override
     public Coordinate shift(int dx, int dy) {
-        // TODO
+        return new XYCoordinate(x+dx,y+dy);
     }
 
 }
