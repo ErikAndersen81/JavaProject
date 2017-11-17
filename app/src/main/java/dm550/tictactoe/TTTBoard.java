@@ -45,10 +45,10 @@ public class TTTBoard {
      * checks that the given positions is on the board
      * checks that the player number is valid 
      */
-    public void addMove(Coordinate c, int player) {
+    public void addMove(Coordinate c, int player) throws IllegalArgumentException{
         if (isFree(c) && c.checkBoundaries(c.getX(),c.getY())){
             board[c.getX()][c.getY()] = player;
-        }
+        } else{throw new IllegalArgumentException();}
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
@@ -80,7 +80,7 @@ public class TTTBoard {
     }
     
     /** pretty printing of the board
-     * usefule for debugging purposes
+     * useful for debugging purposes
      */
     public String toString() {
         String result = "";
