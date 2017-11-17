@@ -73,7 +73,6 @@ public class TTTBoard {
     private int checkSequence(Coordinate start, int dx, int dy) {
         int counter = 0;
         // TODO
-
     }
     
     /** getter for size of the board */
