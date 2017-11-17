@@ -72,6 +72,7 @@ public class TTTBoard {
     /** internal helper function checking one row, column, or diagonal */
     private int checkSequence(Coordinate start, int dx, int dy) {
         int counter = 0;
+        // TODO
 
     }
     
