@@ -46,7 +46,9 @@ public class TTTBoard {
      * checks that the player number is valid 
      */
     public void addMove(Coordinate c, int player) throws IllegalArgumentException{
-        if (isFree(c) && c.checkBoundaries(c.getX(),c.getY())){
+        boolean free = isFree(c);
+        boolean bounds = c.checkBoundaries(c.getX(),c.getY());
+        if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getX()][c.getY()] = player;
         } else{throw new IllegalArgumentException();}
     }
@@ -66,13 +68,33 @@ public class TTTBoard {
      * otherwise returns the number of the player that has three in a row
      */
     public int checkWinning() {
-        // TODO
+        for(int i = 0; i<size*size ; i++){
+            Coordinate start = new XYCoordinate(i%board.length,0/board.length);
+            int horizontal = checkSequence(start,1,0);
+            int vertical = checkSequence(start,0,1);
+            int crossRightDown = checkSequence(start,1,1);
+            int crossLeftDown = checkSequence(start,-1,1);
+            if(horizontal != 0) return horizontal;
+            if(vertical != 0) return vertical;
+            if(crossRightDown != 0) return crossRightDown;
+            if(crossLeftDown != 0) return crossLeftDown;
+        }
+        return 0;
     }
     
     /** internal helper function checking one row, column, or diagonal */
     private int checkSequence(Coordinate start, int dx, int dy) {
         int counter = 0;
-        // TODO
+        int player = 0;
+        Coordinate coordinate = new XYCoordinate(start.getX(),start.getY());
+        while (coordinate.checkBoundaries(size,size)){
+            counter = player == getPlayer(coordinate) ? counter+1:1;
+            player = getPlayer(coordinate);
+            coordinate = coordinate.shift(dx,dy);
+            if ((counter == 3) && (player != 0)){ break;}
+        }
+        if (counter < 3) player =0;
+        return player;
     }
     
     /** getter for size of the board */
