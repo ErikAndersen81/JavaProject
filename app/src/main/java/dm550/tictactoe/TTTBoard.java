@@ -48,7 +48,6 @@ public class TTTBoard {
     public void addMove(Coordinate c, int player) throws IllegalArgumentException{
         try {
             boolean free = isFree(c);
-            boolean bounds = c.checkBoundaries(c.getX(), c.getY());
         } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getY()][c.getX()] = player;
