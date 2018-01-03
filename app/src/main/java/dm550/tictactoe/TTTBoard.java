@@ -33,12 +33,12 @@ public class TTTBoard {
     
     /** checks whether the board is free at the given position */
     public boolean isFree(Coordinate c) {
-        return board[c.getX()][c.getY()]==0;
+        return board[c.getY()][c.getX()]==0;
     }
     
     /** returns the players that made a move on (x,y) or 0 if the position is free */
     public int getPlayer(Coordinate c) {
-        return board[c.getX()][c.getY()];
+        return board[c.getY()][c.getX()];
     }
     
     /** record that a given player made a move at the given position
@@ -46,11 +46,13 @@ public class TTTBoard {
      * checks that the player number is valid 
      */
     public void addMove(Coordinate c, int player) throws IllegalArgumentException{
-        boolean free = isFree(c);
-        boolean bounds = c.checkBoundaries(c.getX(),c.getY());
+        try {
+            boolean free = isFree(c);
+            boolean bounds = c.checkBoundaries(c.getX(), c.getY());
+        } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
-            board[c.getX()][c.getY()] = player;
-        } else{throw new IllegalArgumentException();}
+            board[c.getY()][c.getX()] = player;
+        } else{throw new IllegalArgumentException("Position is already occupied!");}
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
@@ -69,7 +71,7 @@ public class TTTBoard {
      */
     public int checkWinning() {
         for(int i = 0; i<size*size ; i++){
-            Coordinate start = new XYCoordinate(i%board.length,0/board.length);
+            Coordinate start = new XYCoordinate(i%size,i/size);
             int horizontal = checkSequence(start,1,0);
             int vertical = checkSequence(start,0,1);
             int crossRightDown = checkSequence(start,1,1);
