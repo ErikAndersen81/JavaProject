@@ -43,7 +43,7 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         });
         layout.addView(b);
         Button AI = new AppCompatButton(this);
-        b.setText("Play 2-way aganist AI");
+        AI.setText("Play 2-way aganist AI");
         layout.addView(AI);
         ScrollView2D sv = new ScrollView2D(this);
         sv.setContent(layout);
