@@ -1,5 +1,8 @@
 package dm550.tictactoe;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -24,15 +27,18 @@ public class AppUI extends AppCompatActivity implements UserInterface {
 
     @Override
     public void onBackPressed() {
-        LinearLayout layout = new LinearLayout(this);
+        final LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
+
         TextView tv = new TextView(this);
         tv.setText("Please select the number of players!");
         layout.addView(tv);
+
         final NumberPicker np = new NumberPicker(this);
         np.setMinValue(2);
         np.setMaxValue(6);
         layout.addView(np);
+
         Button b = new AppCompatButton(this);
         b.setText("SET");
         b.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +48,15 @@ public class AppUI extends AppCompatActivity implements UserInterface {
             }
         });
         layout.addView(b);
+
         Button AI = new AppCompatButton(this);
         AI.setText("Play 2-way aganist AI");
+        AI.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                boolean setAI = true; //Identify if the AI should initiated
+                AppUI.this.startGame(new TTTAIGame(2));
+            }
+        });
         layout.addView(AI);
         ScrollView2D sv = new ScrollView2D(this);
         sv.setContent(layout);
@@ -71,6 +84,11 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         TableLayout layout = new TableLayout(AppUI.this);
         final int xSize = game.getHorizontalSize();
         final int ySize = game.getVerticalSize();
+
+
+        boolean notDone = true;
+
+
         for (int i = 0; i < ySize; i++) {
             layout.setColumnStretchable(i, true);
         }
@@ -81,6 +99,24 @@ public class AppUI extends AppCompatActivity implements UserInterface {
                 PosButton b = new PosButton(pos);
                 buttons.add(b);
                 b.setText(" ");
+
+
+                if ((TTTAIGame.setAI = true) && notDone ) {
+                    notDone = false;
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(AppUI.this);
+                    builder.setMessage("Want to play aganist AI?");
+                    builder.setCancelable(false);
+                    builder.setNegativeButton("YES!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+
+
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -121,5 +157,4 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         view.addView(b);
         this.setContentView(view);
     }
-
 }
