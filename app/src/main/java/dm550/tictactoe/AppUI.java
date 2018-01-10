@@ -34,7 +34,7 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         np.setMaxValue(6);
         layout.addView(np);
         Button b = new AppCompatButton(this);
-        b.setText("OK");
+        b.setText("SET");
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +42,9 @@ public class AppUI extends AppCompatActivity implements UserInterface {
             }
         });
         layout.addView(b);
+        Button AI = new AppCompatButton(this);
+        b.setText("Play 2-way aganist AI");
+        layout.addView(AI);
         ScrollView2D sv = new ScrollView2D(this);
         sv.setContent(layout);
         this.setContentView(sv);
