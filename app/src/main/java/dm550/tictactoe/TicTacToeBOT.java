@@ -26,8 +26,11 @@ public class TicTacToeBOT {
                 if(board.getPlayer(point) !=0) { continue;}
 
                 Random r = new Random();
-                int k = r.nextInt(2-0);
-                int l = r.nextInt(2-0);
+                int k = r.nextInt(3);
+                int l = r.nextInt(3);
+
+                Log.i("K = ", "" + k);
+                Log.i("L = ", "" + l);
 
                 Coordinate random = new XYCoordinate(k,l);
                 move = random;

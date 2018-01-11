@@ -1,5 +1,7 @@
 package dm550.tictactoe;
 
+import java.util.Random;
+
 /** represents a tic tac toe board of a given size */
 public class TTTBoard {
     
@@ -51,7 +53,17 @@ public class TTTBoard {
         } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getY()][c.getX()] = player;
-        } else{throw new IllegalArgumentException("Position is already occupied!");}
+        } else{
+            if(player == 2){
+                Random r = new Random();
+                int k = r.nextInt(3);
+                int l = r.nextInt(3);
+                Coordinate random = new XYCoordinate(k,l);
+                addMove(random,2);
+            } else {
+                throw new IllegalArgumentException("Position is already occupied!");
+            }
+        }
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
