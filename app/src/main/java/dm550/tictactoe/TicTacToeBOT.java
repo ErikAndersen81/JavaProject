@@ -24,27 +24,66 @@ public class TicTacToeBOT {
             for(int y = 0; y < boardSize; ++y){
                 Coordinate point = new XYCoordinate(x,y);
                 if(board.getPlayer(point) !=0) { continue;}
-
-                Random r = new Random();
-                int k = r.nextInt(3);
-                int l = r.nextInt(3);
-
-                Log.i("K = ", "" + k);
-                Log.i("L = ", "" + l);
-
-                Coordinate random = new XYCoordinate(k,l);
-                move = random;
                 //Determine whether the move is optimal or not
-                //if(this.isMoveOptimal(point)){
-                   // move = point;
+                if(this.winningMove(point)) {
+                    move = point;
+                }
+                if(this.blockingMove(point)){
+                    
+                }
+                if(this.forkMove(point)){
 
+                }
+                if(this.blockForkMove(point)){
+
+                }
+                if(this.potentialForkMove(point)){
+
+                }
+                if(this.centerMove(point)){
+
+                }
+                if(this.opposingCornerMove(point)){
+
+                }
+                if(this.emptyCornerMove(point)){
+
+                }
             }
         }
         return move;
     }
 
-    private boolean isMoveOptimal(Coordinate point) {
-        //win
+    private boolean winningMove(Coordinate point) {
+    }
+
+    private boolean blockingMove(Coordinate point) {
+    }
+
+    private boolean forkMove(Coordinate point) {
+    }
+
+    private boolean blockForkMove(Coordinate point) {
+    }
+
+    private boolean potentialForkMove(Coordinate point) {
+    }
+
+    private boolean centerMove(Coordinate point) {
+        
+    }
+
+    private boolean opposingCornerMove(Coordinate point) {
+        
+    }
+
+    private boolean emptyCornerMove(Coordinate point) {
+    }
+    
+
+
+    //WIN    
+   
 
         //block
 
@@ -55,6 +94,5 @@ public class TicTacToeBOT {
             //force
 
         //Play center
-        return true;
-    }
+        
 }

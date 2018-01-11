@@ -49,7 +49,6 @@ public class TTTGame implements Game {
     @Override
     public void addMove(Coordinate pos) {
         this.board.addMove(pos, this.currentPlayer);
-        board.checkWinning();
         if(currentPlayer == this.numPlayers - this.bot)
             for (TicTacToeBOT bot : this.botAI){
                 Coordinate point = bot.makeMove(this.board);
