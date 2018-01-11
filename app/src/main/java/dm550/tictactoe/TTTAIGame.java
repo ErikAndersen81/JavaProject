@@ -24,6 +24,7 @@ public class TTTAIGame implements Game {
         this.currentPlayer = 1;
         this.numPlayers = numPlayers;
         this.board = new TTTBoard(numPlayers);
+        this.setAI = true;
     }
 
     @Override

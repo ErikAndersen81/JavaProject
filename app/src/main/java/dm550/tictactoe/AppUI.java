@@ -1,8 +1,5 @@
 package dm550.tictactoe;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -13,6 +10,7 @@ import android.widget.NumberPicker;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import java.util.Random;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,11 +82,6 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         TableLayout layout = new TableLayout(AppUI.this);
         final int xSize = game.getHorizontalSize();
         final int ySize = game.getVerticalSize();
-
-
-        boolean notDone = true;
-
-
         for (int i = 0; i < ySize; i++) {
             layout.setColumnStretchable(i, true);
         }
@@ -99,24 +92,6 @@ public class AppUI extends AppCompatActivity implements UserInterface {
                 PosButton b = new PosButton(pos);
                 buttons.add(b);
                 b.setText(" ");
-
-
-                if ((TTTAIGame.setAI = true) && notDone ) {
-                    notDone = false;
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(AppUI.this);
-                    builder.setMessage("Want to play aganist AI?");
-                    builder.setCancelable(false);
-                    builder.setNegativeButton("YES!", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-
-
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -130,6 +105,19 @@ public class AppUI extends AppCompatActivity implements UserInterface {
                         }
                     }
                 });
+                Random r = new Random();
+                int k = r.nextInt(2-0);
+                int l = r.nextInt(2-0);
+                if ((TTTAIGame.setAI = true)) {
+                    Coordinate ran = new XYCoordinate(k,l);
+                    if (game.isFree(ran)) {
+                        game.addMove(ran);
+                        for (PosButton button : buttons) {
+                            //button.setText("AI");
+                        }
+                        game.checkResult();
+                    }
+                }
                 row.addView(b);
             }
             layout.addView(row);
