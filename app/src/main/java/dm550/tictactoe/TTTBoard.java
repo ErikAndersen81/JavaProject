@@ -53,17 +53,7 @@ public class TTTBoard {
         } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getY()][c.getX()] = player;
-        } else{
-            if(player == 2){
-                Random r = new Random();
-                int k = r.nextInt(3);
-                int l = r.nextInt(3);
-                Coordinate random = new XYCoordinate(k,l);
-                addMove(random,2);
-            } else {
-                throw new IllegalArgumentException("Position is already occupied!");
-            }
-        }
+        } else{throw new IllegalArgumentException("Position is already occupied!");}
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
