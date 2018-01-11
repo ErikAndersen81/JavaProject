@@ -10,18 +10,33 @@ public class TTTGame implements Game {
 
     /** total number of players */
     private int numPlayers;
+
+    private int bot;
     
     /** the board we play on */
     private TTTBoard board;
     
     /** the gui for board games */
     private UserInterface ui;
+
+    private TicTacToeBOT[] botAI;
     
     /** constructor that gets the number of players */
     public TTTGame(int numPlayers) {
         this.currentPlayer = 1;
         this.numPlayers = numPlayers;
         this.board = new TTTBoard(numPlayers);
+    }
+
+    public TTTGame(int numHuman, int bot){
+        this.currentPlayer = 1;
+        this.numPlayers = numPlayers + bot;
+        this.board = new TTTBoard(this.numPlayers);
+
+        this.bot = bot;
+
+        this.botAI = new TicTacToeBOT[bot];
+        this.botAI[bot] = new TicTacToeBOT(numHuman + bot + 1,this.numPlayers);
     }
 
     @Override

@@ -52,7 +52,7 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         AI.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 boolean setAI = true; //Identify if the AI should initiated
-                AppUI.this.startGame(new TTTAIGame(2));
+                AppUI.this.startGame(new TTTGame(1,1));
             }
         });
         layout.addView(AI);
@@ -105,19 +105,6 @@ public class AppUI extends AppCompatActivity implements UserInterface {
                         }
                     }
                 });
-                Random r = new Random();
-                int k = r.nextInt(2-0);
-                int l = r.nextInt(2-0);
-                if ((TTTAIGame.setAI = true)) {
-                    Coordinate ran = new XYCoordinate(k,l);
-                    if (game.isFree(ran)) {
-                        game.addMove(ran);
-                        for (PosButton button : buttons) {
-                            //button.setText("AI");
-                        }
-                        game.checkResult();
-                    }
-                }
                 row.addView(b);
             }
             layout.addView(row);
