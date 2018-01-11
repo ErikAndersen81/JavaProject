@@ -36,7 +36,7 @@ public class TTTGame implements Game {
         this.bot = bot;
 
         this.botAI = new TicTacToeBOT[bot];
-        this.botAI[bot] = new TicTacToeBOT(numHuman + bot + 1,this.numPlayers);
+        this.botAI[bot] = new TicTacToeBOT(numHuman + bot ,this.numPlayers);
     }
 
     @Override
