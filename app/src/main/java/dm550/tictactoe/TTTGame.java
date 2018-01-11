@@ -30,13 +30,15 @@ public class TTTGame implements Game {
 
     public TTTGame(int numHuman, int bot){
         this.currentPlayer = 1;
-        this.numPlayers = numPlayers + bot;
+        this.numPlayers = numHuman + bot;
         this.board = new TTTBoard(this.numPlayers);
 
         this.bot = bot;
 
         this.botAI = new TicTacToeBOT[bot];
-        this.botAI[bot] = new TicTacToeBOT(numHuman + bot ,this.numPlayers);
+        for (int i = 0 ; i < bot; ++i) {
+            this.botAI[i] = new TicTacToeBOT(numHuman + i + bot, this.numPlayers);
+        }
     }
 
     @Override
