@@ -1,6 +1,10 @@
 package dm550.tictactoe;
 
 
+import android.util.Log;
+
+import java.util.Random;
+
 public class TicTacToeBOT {
     private int numPlayers;
     private int botID;
@@ -21,18 +25,33 @@ public class TicTacToeBOT {
                 Coordinate point = new XYCoordinate(x,y);
                 if(board.getPlayer(point) !=0) { continue;}
 
+                Random r = new Random();
+                int k = r.nextInt(2-0);
+                int l = r.nextInt(2-0);
+
+                Coordinate random = new XYCoordinate(k,l);
+                move = random;
                 //Determine whether the move is optimal or not
-                if(this.isMoveOptimal(point)){
-                    return point;
-                }
+                //if(this.isMoveOptimal(point)){
+                   // move = point;
+
             }
         }
+        return move;
     }
 
     private boolean isMoveOptimal(Coordinate point) {
+        //win
 
-        return false;
+        //block
 
+        //Fork
+
+        //Block fork
+
+            //force
+
+        //Play center
         return true;
     }
 }
