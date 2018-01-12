@@ -1,7 +1,5 @@
 package dm550.tictactoe;
 
-import android.util.Log;
-
 /** main class creating a board and the GUI
  * defines the game play
  */
