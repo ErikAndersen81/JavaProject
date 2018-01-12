@@ -1,5 +1,7 @@
 package dm550.tictactoe;
 
+import android.util.Log;
+
 import java.util.Random;
 
 /** represents a tic tac toe board of a given size */
@@ -53,13 +55,8 @@ public class TTTBoard {
         } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getY()][c.getX()] = player;
-        } else{throw new IllegalArgumentException("Position is already occupied!");}
-            /*if(player == 2){
-            }
-            else{
-
-            }
-            */
+        } else{ Log.i("Posistion:","Y:"+c.getY()+"X:"+c.getX());
+            throw new IllegalArgumentException("Position is already occupied!");}
 
     }
 
