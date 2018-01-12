@@ -12,6 +12,9 @@ public class TTTGame implements Game {
     private int numPlayers;
 
     private int bot;
+
+    /**Number of times the bot runs*/
+    private int numBot = 0;
     
     /** the board we play on */
     private TTTBoard board;
@@ -50,7 +53,9 @@ public class TTTGame implements Game {
     public void addMove(Coordinate pos) {
         this.board.addMove(pos, this.currentPlayer);
         //Detemine if bot should be making moves
-        if(this.bot == 1){
+        checkResult();
+        if(this.bot == 1 && numBot <= 3){
+            numBot++;
             for (TicTacToeBOT bot : this.botAI) {
                 Coordinate point = bot.makeMove(this.board);
                 this.board.addMove(point, bot.getBotID());

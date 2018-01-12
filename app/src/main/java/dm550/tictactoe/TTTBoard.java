@@ -55,7 +55,7 @@ public class TTTBoard {
         } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getY()][c.getX()] = player;
-        } else{ Log.i("Posistion:","Y:"+c.getY()+"X:"+c.getX());
+        } else{ Log.i("Posistion:","Y:"+c.getY()+" X:"+c.getX()+" Player" + player);
             throw new IllegalArgumentException("Position is already occupied!");}
 
     }
