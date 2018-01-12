@@ -89,25 +89,6 @@ public class TTTBoard {
         return 0;
     }
 
-    /**
-     * Returns 0 if there isn't a winning move (2 in a row)
-     */
-
-    public int checkWin() {
-        for (int i = 0; i < size * size; i++) {
-            Coordinate start = new XYCoordinate(0, 0);
-            int horizontal = checkSequence(start, 1, 0, 2);
-            int vertical = checkSequence(start, 0, 1, 2);
-            int crossRightDown = checkSequence(start, 1, 1, 2);
-            int crossLeftDown = checkSequence(start, -1, 1, 2);
-            if (horizontal != 0) return horizontal;
-            if (vertical != 0) return vertical;
-            if (crossRightDown != 0) return crossRightDown;
-            if (crossLeftDown != 0) return crossLeftDown;
-        }
-        return 0;
-    }
-
     /** internal helper function checking one row, column, or diagonal */
     public int checkSequence(Coordinate start, int dx, int dy, int length) {
         int counter = 0;
