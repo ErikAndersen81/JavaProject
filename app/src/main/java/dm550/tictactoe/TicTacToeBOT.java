@@ -30,266 +30,266 @@ public class TicTacToeBOT {
 
         //Win
 
-        //Horizontally
-        if(!board.isFree(x0y0)){
-            if(board.getPlayer(x0y0) == 2){
-                if(!board.isFree(x1y0)){
-                    if (board.getPlayer(x1y0) == 2) {
-                        if(board.isFree(x2y0)) {
-                            return x2y0;
+            //Horizontally
+            if(!board.isFree(x0y0)){
+                if(board.getPlayer(x0y0) == 2){
+                    if(!board.isFree(x1y0)){
+                        if (board.getPlayer(x1y0) == 2) {
+                            if(board.isFree(x2y0)) {
+                                return x2y0;
+                            }
                         }
                     }
-                }
-                if(!board.isFree(x2y0)){
-                    if (board.getPlayer(x2y0) == 2) {
-                        if (board.isFree(x1y0)) {
-                            return x1y0;
-                        }
-                    }
-                }
-            }
-        }
-        else{
-            if(!board.isFree(x1y0)){
-                if(board.getPlayer(x1y0) == 2){
                     if(!board.isFree(x2y0)){
-                        if (board.getPlayer(x2y0) == 2){
-                            if(board.isFree(x0y0)) {
-                                return x0y0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if(!board.isFree(x0y1)){
-            if(board.getPlayer(x0y1) == 2){
-                if(!board.isFree(x1y1)){
-                    if (board.getPlayer(x1y1) == 2) {
-                        if(board.isFree(x2y1)) {
-                            return x2y1;
-                        }
-                    }
-                }
-                if(!board.isFree(x2y1)){
-                    if (board.getPlayer(x2y1) == 2) {
-                        if(board.isFree(x1y1))
-                        return x1y1;
-                    }
-                }
-            }
-        }
-        else{
-            if(!board.isFree(x1y1)){
-                if(board.getPlayer(x1y1) == 2){
-                    if(!board.isFree(x2y1)){
-                        if (board.getPlayer(x2y1) == 2){
-                            if(board.isFree(x0y1))
-                            return x0y1;
-                        }
-                    }
-                }
-            }
-        }
-
-        if(!board.isFree(x0y2)){
-            if(board.getPlayer(x0y2) == 2){
-                if(!board.isFree(x1y2)){
-                    if (board.getPlayer(x1y2) == 2) {
-                        if(board.isFree(x2y2)) {
-                            return x2y2;
-                        }
-                    }
-                }
-                if(!board.isFree(x2y2)){
-                    if (board.getPlayer(x2y2) == 2) {
-                        if(board.isFree(x1y2)) {
-                            return x1y2;
-                        }
-                    }
-                }
-            }
-        }
-        else{
-            if(!board.isFree(x1y2)){
-                if(board.getPlayer(x1y2) == 2){
-                    if(!board.isFree(x2y2)){
-                        if (board.getPlayer(x2y2) == 2){
-                            if(board.isFree(x0y2)) {
-                                return x0y2;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        //Vertically
-
-        if(!board.isFree(x0y0)){
-            if(board.getPlayer(x0y0) == 2){
-                if(!board.isFree(x0y1)){
-                    if (board.getPlayer(x0y1) == 2) {
-                        if(board.isFree(x0y2)) {
-                            return x0y2;
-                        }
-                    }
-                }
-                if(!board.isFree(x0y2)){
-                    if (board.getPlayer(x0y2) == 2) {
-                        if(board.isFree(x0y1)) {
-                            return x0y1;
-                        }
-                    }
-                }
-            }
-        }
-        else{
-            if(!board.isFree(x0y1)){
-                if(board.getPlayer(x0y1) == 2){
-                    if(!board.isFree(x0y2)){
-                        if (board.getPlayer(x0y2) == 2){
-                            if(board.isFree(x0y0)) {
-                                return x0y0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if(!board.isFree(x1y0)){
-            if(board.getPlayer(x1y0) == 2){
-                if(!board.isFree(x1y1)){
-                    if (board.getPlayer(x1y1) == 2) {
-                        if(board.isFree(x1y2)) {
-                            return x1y2;
-                        }
-                    }
-                }
-                if(!board.isFree(x1y2)){
-                    if (board.getPlayer(x1y2) == 2) {
-                        if(board.isFree(x1y1)) {
-                            return x1y1;
-                        }
-                    }
-                }
-            }
-        }
-        else{
-            if(!board.isFree(x1y1)){
-                if(board.getPlayer(x1y1) == 2){
-                    if(!board.isFree(x1y2)){
-                        if (board.getPlayer(x1y2) == 2){
-                            if(board.isFree(x1y0)) {
+                        if (board.getPlayer(x2y0) == 2) {
+                            if (board.isFree(x1y0)) {
                                 return x1y0;
                             }
                         }
                     }
                 }
             }
-        }
-
-        if(!board.isFree(x2y0)){
-            if(board.getPlayer(x2y0) == 2){
-                if(!board.isFree(x2y1)){
-                    if (board.getPlayer(x2y1) == 2) {
-                        if(board.isFree(x2y2)) {
-                            return x2y2;
-                        }
-                    }
-                }
-                if(!board.isFree(x2y2)){
-                    if (board.getPlayer(x2y2) == 2) {
-                        if(board.isFree(x2y1)) {
-                            return x2y1;
-                        }
-                    }
-                }
-            }
-        }
-        else{
-            if(!board.isFree(x2y1)){
-                if(board.getPlayer(x2y1) == 2){
-                    if(!board.isFree(x2y2)){
-                        if (board.getPlayer(x2y2) == 2){
-                            if(board.isFree(x2y0)) {
-                                return x2y0;
+            else{
+                if(!board.isFree(x1y0)){
+                    if(board.getPlayer(x1y0) == 2){
+                        if(!board.isFree(x2y0)){
+                            if (board.getPlayer(x2y0) == 2){
+                                if(board.isFree(x0y0)) {
+                                    return x0y0;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
-        //Downright
-
-        if(!board.isFree(x0y0)){
-            if(board.getPlayer(x0y0) == 2){
-                if(!board.isFree(x1y1)){
-                    if (board.getPlayer(x1y1) == 2) {
-                        if(board.isFree(x2y2)) {
-                            return x2y2;
+            if(!board.isFree(x0y1)){
+                if(board.getPlayer(x0y1) == 2){
+                    if(!board.isFree(x1y1)){
+                        if (board.getPlayer(x1y1) == 2) {
+                            if(board.isFree(x2y1)) {
+                                return x2y1;
+                            }
                         }
                     }
-                }
-                if(!board.isFree(x2y2)){
-                    if (board.getPlayer(x2y2) == 2) {
-                        if(board.isFree(x1y1)) {
+                    if(!board.isFree(x2y1)){
+                        if (board.getPlayer(x2y1) == 2) {
+                            if(board.isFree(x1y1))
                             return x1y1;
                         }
                     }
                 }
             }
-        }
-        else{
-            if(!board.isFree(x1y1)){
-                if(board.getPlayer(x1y1) == 2){
-                    if(!board.isFree(x2y2)){
-                        if (board.getPlayer(x2y2) == 2){
-                            if(board.isFree(x0y0)) {
-                                return x0y0;
+            else{
+                if(!board.isFree(x1y1)){
+                    if(board.getPlayer(x1y1) == 2){
+                        if(!board.isFree(x2y1)){
+                            if (board.getPlayer(x2y1) == 2){
+                                if(board.isFree(x0y1))
+                                return x0y1;
                             }
                         }
                     }
                 }
             }
-        }
 
-        //Downleft
-
-        if(!board.isFree(x2y0)){
-            if(board.getPlayer(x2y0) == 1){
-                if(!board.isFree(x1y1)){
-                    if (board.getPlayer(x1y1) == 2) {
-                        if(board.isFree(x0y2)) {
-                            return x0y2;
+            if(!board.isFree(x0y2)){
+                if(board.getPlayer(x0y2) == 2){
+                    if(!board.isFree(x1y2)){
+                        if (board.getPlayer(x1y2) == 2) {
+                            if(board.isFree(x2y2)) {
+                                return x2y2;
+                            }
                         }
                     }
-                }
-                if(!board.isFree(x0y2)){
-                    if (board.getPlayer(x0y2) == 2) {
-                        if(board.isFree(x1y1)) {
-                            return x1y1;
+                    if(!board.isFree(x2y2)){
+                        if (board.getPlayer(x2y2) == 2) {
+                            if(board.isFree(x1y2)) {
+                                return x1y2;
+                            }
                         }
                     }
                 }
             }
-        }
-        else{
-            if(!board.isFree(x1y1)){
-                if(board.getPlayer(x1y1) == 2){
+            else{
+                if(!board.isFree(x1y2)){
+                    if(board.getPlayer(x1y2) == 2){
+                        if(!board.isFree(x2y2)){
+                            if (board.getPlayer(x2y2) == 2){
+                                if(board.isFree(x0y2)) {
+                                    return x0y2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Vertically
+
+            if(!board.isFree(x0y0)){
+                if(board.getPlayer(x0y0) == 2){
+                    if(!board.isFree(x0y1)){
+                        if (board.getPlayer(x0y1) == 2) {
+                            if(board.isFree(x0y2)) {
+                                return x0y2;
+                            }
+                        }
+                    }
                     if(!board.isFree(x0y2)){
-                        if (board.getPlayer(x0y2) == 2){
-                            if(board.isFree(x2y0)) {
-                                return x2y0;
+                        if (board.getPlayer(x0y2) == 2) {
+                            if(board.isFree(x0y1)) {
+                                return x0y1;
                             }
                         }
                     }
                 }
             }
-        }
+            else{
+                if(!board.isFree(x0y1)){
+                    if(board.getPlayer(x0y1) == 2){
+                        if(!board.isFree(x0y2)){
+                            if (board.getPlayer(x0y2) == 2){
+                                if(board.isFree(x0y0)) {
+                                    return x0y0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(!board.isFree(x1y0)){
+                if(board.getPlayer(x1y0) == 2){
+                    if(!board.isFree(x1y1)){
+                        if (board.getPlayer(x1y1) == 2) {
+                            if(board.isFree(x1y2)) {
+                                return x1y2;
+                            }
+                        }
+                    }
+                    if(!board.isFree(x1y2)){
+                        if (board.getPlayer(x1y2) == 2) {
+                            if(board.isFree(x1y1)) {
+                                return x1y1;
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                if(!board.isFree(x1y1)){
+                    if(board.getPlayer(x1y1) == 2){
+                        if(!board.isFree(x1y2)){
+                            if (board.getPlayer(x1y2) == 2){
+                                if(board.isFree(x1y0)) {
+                                    return x1y0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(!board.isFree(x2y0)){
+                if(board.getPlayer(x2y0) == 2){
+                    if(!board.isFree(x2y1)){
+                        if (board.getPlayer(x2y1) == 2) {
+                            if(board.isFree(x2y2)) {
+                                return x2y2;
+                            }
+                        }
+                    }
+                    if(!board.isFree(x2y2)){
+                        if (board.getPlayer(x2y2) == 2) {
+                            if(board.isFree(x2y1)) {
+                                return x2y1;
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                if(!board.isFree(x2y1)){
+                    if(board.getPlayer(x2y1) == 2){
+                        if(!board.isFree(x2y2)){
+                            if (board.getPlayer(x2y2) == 2){
+                                if(board.isFree(x2y0)) {
+                                    return x2y0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Downright
+
+            if(!board.isFree(x0y0)){
+                if(board.getPlayer(x0y0) == 2){
+                    if(!board.isFree(x1y1)){
+                        if (board.getPlayer(x1y1) == 2) {
+                            if(board.isFree(x2y2)) {
+                                return x2y2;
+                            }
+                        }
+                    }
+                    if(!board.isFree(x2y2)){
+                        if (board.getPlayer(x2y2) == 2) {
+                            if(board.isFree(x1y1)) {
+                                return x1y1;
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                if(!board.isFree(x1y1)){
+                    if(board.getPlayer(x1y1) == 2){
+                        if(!board.isFree(x2y2)){
+                            if (board.getPlayer(x2y2) == 2){
+                                if(board.isFree(x0y0)) {
+                                    return x0y0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Downleft
+
+            if(!board.isFree(x2y0)){
+                if(board.getPlayer(x2y0) == 1){
+                    if(!board.isFree(x1y1)){
+                        if (board.getPlayer(x1y1) == 2) {
+                            if(board.isFree(x0y2)) {
+                                return x0y2;
+                            }
+                        }
+                    }
+                    if(!board.isFree(x0y2)){
+                        if (board.getPlayer(x0y2) == 2) {
+                            if(board.isFree(x1y1)) {
+                                return x1y1;
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                if(!board.isFree(x1y1)){
+                    if(board.getPlayer(x1y1) == 2){
+                        if(!board.isFree(x0y2)){
+                            if (board.getPlayer(x0y2) == 2){
+                                if(board.isFree(x2y0)) {
+                                    return x2y0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
 
         //Block
