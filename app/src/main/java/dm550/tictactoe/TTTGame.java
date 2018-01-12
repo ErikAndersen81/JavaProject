@@ -1,5 +1,7 @@
 package dm550.tictactoe;
 
+import android.util.Log;
+
 /** main class creating a board and the GUI
  * defines the game play
  */
@@ -25,7 +27,7 @@ public class TTTGame implements Game {
     public TTTGame(int numPlayers) {
         this.currentPlayer = 1;
         this.numPlayers = numPlayers;
-        this.board = new TTTBoard(numPlayers);
+        this.board = new TTTBoard(this.numPlayers);
     }
 
     public TTTGame(int numHuman, int bot){
@@ -49,12 +51,15 @@ public class TTTGame implements Game {
     @Override
     public void addMove(Coordinate pos) {
         this.board.addMove(pos, this.currentPlayer);
-        if(currentPlayer == this.numPlayers - this.bot)
-            for (TicTacToeBOT bot : this.botAI){
+        //Detemine if bot should be making moves
+        if(this.bot == 1){
+            for (TicTacToeBOT bot : this.botAI) {
                 Coordinate point = bot.makeMove(this.board);
                 this.board.addMove(point, bot.getBotID());
             }
             this.currentPlayer = this.numPlayers;
+
+        }
         if (this.currentPlayer == this.numPlayers) {
             this.currentPlayer = 1;
         } else {
