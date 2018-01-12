@@ -65,34 +65,47 @@ public class TicTacToeBOT {
         }
          */
 
-        //Center
+        //Fork
+
+        
+
+
+        //Centre
 
         if(board.isFree(x1y1)){
             return x1y1;
         }
-        
+
         //Pick opposite corner of player
         if(!board.isFree(x0y0)){
             if(board.isFree(x2y2)) {
-                return x2y2;
+                if (board.getPlayer(x0y0) == 1) {
+                    return x2y0;
+                }
             }
         }
 
         if(!board.isFree(x2y0)){
             if(board.isFree(x0y2)) {
-                return x0y2;
+                if (board.getPlayer(x2y0) == 1) {
+                    return x2y2;
+                }
             }
         }
 
         if(!board.isFree(x2y2)){
             if(board.isFree(x0y0)){
-                return x0y0;
+                if (board.getPlayer(x2y2) == 1) {
+                    return x0y0;
+                }
             }
         }
 
         if(!board.isFree(x0y2)){
             if(board.isFree(x2y0)){
-                return x2y0;
+                if (board.getPlayer(x0y2) == 1) {
+                    return x2y0;
+                }
             }
         }
         //Pick a corner
