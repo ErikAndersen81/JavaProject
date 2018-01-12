@@ -51,7 +51,7 @@ public class TTTBoard {
         } catch (ArrayIndexOutOfBoundsException e){throw new IllegalArgumentException("Move is out of bounds!");}
         if (isFree(c) && c.checkBoundaries(size,size)){
             board[c.getY()][c.getX()] = player;
-        } else{throw new IllegalArgumentException("Position is already occupied!");}
+        } else{ throw new IllegalArgumentException("Position is already occupied!");}
     }
 
     /** returns true if, and only if, there are no more free positions on the board */
@@ -71,10 +71,10 @@ public class TTTBoard {
     public int checkWinning() {
         for(int i = 0; i<size*size ; i++){
             Coordinate start = new XYCoordinate(i%size,i/size);
-            int horizontal = checkSequence(start,1,0);
-            int vertical = checkSequence(start,0,1);
-            int crossRightDown = checkSequence(start,1,1);
-            int crossLeftDown = checkSequence(start,-1,1);
+            int horizontal = checkSequence(start,1,0,3);
+            int vertical = checkSequence(start,0,1,3);
+            int crossRightDown = checkSequence(start,1,1,3);
+            int crossLeftDown = checkSequence(start,-1,1,3);
             if(horizontal != 0) return horizontal;
             if(vertical != 0) return vertical;
             if(crossRightDown != 0) return crossRightDown;
@@ -82,9 +82,9 @@ public class TTTBoard {
         }
         return 0;
     }
-    
+
     /** internal helper function checking one row, column, or diagonal */
-    private int checkSequence(Coordinate start, int dx, int dy) {
+    public int checkSequence(Coordinate start, int dx, int dy, int length) {
         int counter = 0;
         int player = 0;
         Coordinate coordinate = new XYCoordinate(start.getX(),start.getY());
@@ -92,9 +92,9 @@ public class TTTBoard {
             counter = player == getPlayer(coordinate) ? counter+1:1;
             player = getPlayer(coordinate);
             coordinate = coordinate.shift(dx,dy);
-            if ((counter == 3) && (player != 0)){ break;}
+            if ((counter == length) && (player != 0)){ break;}
         }
-        if (counter < 3) player =0;
+        if (counter < length) player = 0;
         return player;
     }
     

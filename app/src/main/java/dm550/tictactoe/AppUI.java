@@ -24,17 +24,20 @@ public class AppUI extends AppCompatActivity implements UserInterface {
 
     @Override
     public void onBackPressed() {
-        LinearLayout layout = new LinearLayout(this);
+        final LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
+
         TextView tv = new TextView(this);
         tv.setText("Please select the number of players!");
         layout.addView(tv);
+
         final NumberPicker np = new NumberPicker(this);
         np.setMinValue(2);
         np.setMaxValue(6);
         layout.addView(np);
+
         Button b = new AppCompatButton(this);
-        b.setText("OK");
+        b.setText("SET");
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +45,16 @@ public class AppUI extends AppCompatActivity implements UserInterface {
             }
         });
         layout.addView(b);
+
+        Button AI = new AppCompatButton(this);
+        AI.setText("Play 2-way aganist AI");
+        AI.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                boolean setAI = true; //Identify if the AI should initiated
+                AppUI.this.startGame(new TTTGame(1,1));
+            }
+        });
+        layout.addView(AI);
         ScrollView2D sv = new ScrollView2D(this);
         sv.setContent(layout);
         this.setContentView(sv);
@@ -118,5 +131,4 @@ public class AppUI extends AppCompatActivity implements UserInterface {
         view.addView(b);
         this.setContentView(view);
     }
-
 }
