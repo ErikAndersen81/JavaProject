@@ -10,7 +10,6 @@ import android.widget.NumberPicker;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import java.util.Random;
 
 import java.util.ArrayList;
 import java.util.List;
