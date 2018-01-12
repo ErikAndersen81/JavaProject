@@ -65,9 +65,148 @@ public class TicTacToeBOT {
         }
          */
 
-        //Fork
+        //Create fork
 
-        
+
+
+        //Prevent fork
+
+        if(!board.isFree(x0y0)){
+            if(board.getPlayer(x0y0) == 1) {
+                if (!board.isFree(x2y2)) {
+                    if(board.getPlayer(x2y2) == 1) {
+                        if (board.isFree(x1y2)) {
+                            return x1y2;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        if(!board.isFree(x2y0)){
+            if(board.getPlayer(x2y0) == 1) {
+                if (!board.isFree(x0y2)) {
+                    if(board.getPlayer(x0y2) == 1) {
+                        if (board.isFree(x1y2)) {
+                            return x1y2;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x1y0)){
+            if(board.getPlayer(x1y0) == 1) {
+                if (!board.isFree(x2y1)) {
+                    if(board.getPlayer(x2y1) == 1) {
+                        if (board.isFree(x2y0)) {
+                            return x2y0;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x0y1)){
+            if(board.getPlayer(x0y1) == 1) {
+                if (!board.isFree(x1y2)) {
+                    if(board.getPlayer(x1y2) == 1) {
+                        if (board.isFree(x0y2)) {
+                            return x0y2;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x2y1)){
+            if(board.getPlayer(x2y1) == 1) {
+                if (!board.isFree(x1y2)) {
+                    if(board.getPlayer(x1y2) == 1) {
+                        if (board.isFree(x2y2)) {
+                            return x2y2;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x0y2)){
+            if(board.getPlayer(x0y2) == 1) {
+                if (!board.isFree(x2y1)) {
+                    if(board.getPlayer(x2y1) == 1) {
+                        if (board.isFree(x1y2)) {
+                            return x1y2;
+                        }
+                    }
+                }
+                if(!board.isFree(x1y0)){
+                    if(board.getPlayer(x1y0) == 1 ){
+                        if(board.isFree(x0y1)){
+                            return x0y1;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x2y2)){
+            if(board.getPlayer(x2y2) == 1) {
+                if (!board.isFree(x0y1)) {
+                    if(board.getPlayer(x0y1) == 1) {
+                        if (board.isFree(x1y2)) {
+                            return x1y2;
+                        }
+                    }
+                }
+                if(!board.isFree(x1y0)){
+                    if(board.getPlayer(x1y0) == 1 ){
+                        if(board.isFree(x2y1)){
+                            return x2y1;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x0y0)){
+            if(board.getPlayer(x0y0) == 1) {
+                if (!board.isFree(x2y1)) {
+                    if(board.getPlayer(x2y1) == 1) {
+                        if (board.isFree(x1y0)) {
+                            return x1y0;
+                        }
+                    }
+                }
+                if(!board.isFree(x1y2)){
+                    if(board.getPlayer(x1y2) == 1 ){
+                        if(board.isFree(x0y1)){
+                            return x0y1;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!board.isFree(x2y0)){
+            if(board.getPlayer(x2y0) == 1) {
+                if (!board.isFree(x1y2)) {
+                    if(board.getPlayer(x1y2) == 1) {
+                        if (board.isFree(x2y1)) {
+                            return x2y1;
+                        }
+                    }
+                }
+                if(!board.isFree(x0y1)){
+                    if(board.getPlayer(x0y1) == 1 ){
+                        if(board.isFree(x1y0)){
+                            return x1y0;
+                        }
+                    }
+                }
+            }
+        }
 
 
         //Centre
