@@ -50,22 +50,115 @@ public class TicTacToeBOT {
         Coordinate x2y1 = new XYCoordinate(2,1);
         Coordinate x2y2 = new XYCoordinate(2,2);
 
-        /**
-        for(Coordinate c: oppoCoordinates){
-            int index = oppoCoordinates.indexOf(c);
-            if(x0y2.getX() == oppoCoordinates.get(index).getX() && x0y2.getY() == oppoCoordinates.get(index).getY()){
-                move = x2y2;
-                return move;
+        //Win
+        Coordinate startPosition = new XYCoordinate(0, 0);
+        for (int x = 0; x < boardSize; ++x) {
+            for (int y = 0; y < boardSize; ++y) {
+                Coordinate startPoint = new XYCoordinate(x, y);
+                int horizontal = board.checkSequence(startPoint,1,0,1);
+                int vertical = board.checkSequence(startPoint,0,1,1);
+                int crossRightDown = board.checkSequence(x0y0,1,1,1);
+                int crossLeftDown = board.checkSequence(x2y0,-1,1,1);
+                if(vertical >= 2){
+                    int xOfWin = startPoint.getX();
+                    if(xOfWin == 0){
+                        if(board.isFree(x0y0)){
+                            return x0y0;
+                        }
+                        if(board.isFree(x0y1)){
+                            return x0y1;
+                        }
+                        if(board.isFree(x0y2)){
+                            return x0y2;
+                        }
+
+                    }
+                    if(xOfWin == 1) {
+                        if (board.isFree(x1y0)) {
+                            return x1y0;
+                        }
+                        if (board.isFree(x1y1)) {
+                            return x1y1;
+                        }
+                        if (board.isFree(x1y2)) {
+                            return x1y2;
+                        }
+                    }
+                    if(xOfWin == 2) {
+                        if (board.isFree(x2y0)) {
+                            return x2y0;
+                        }
+                        if (board.isFree(x2y1)) {
+                            return x2y1;
+                        }
+                        if (board.isFree(x2y2)) {
+                            return x2y2;
+                        }
+                    }
+                };
+                if(horizontal >= 2){
+                    int yOfWin = startPoint.getY();
+                    if(yOfWin == 0){
+                        if(board.isFree(x0y0)){
+                            return x0y0;
+                        }
+                        if(board.isFree(x1y0)){
+                            return x1y0;
+                        }
+                        if(board.isFree(x2y0)){
+                            return x2y0;
+                        }
+
+                    }
+                    if(yOfWin == 1) {
+                        if (board.isFree(x0y1)) {
+                            return x0y1;
+                        }
+                        if (board.isFree(x1y1)) {
+                            return x1y1;
+                        }
+                        if (board.isFree(x2y1)) {
+                            move = x2y1;
+                        }
+                    }
+                    if(yOfWin == 2) {
+                        if (board.isFree(x0y2)) {
+                            return x0y2;
+                        }
+                        if (board.isFree(x1y2)) {
+                            return x1y2;
+                        }
+                        if (board.isFree(x2y2)) {
+                            return x2y2;
+                        }
+                    }
+                };
+                if(crossRightDown > 1){
+                    if(board.isFree(x0y0)){
+                        return  x0y0;
+                    }
+                    if(board.isFree(x1y1)){
+                        return  x1y1;
+                    }
+                    if(board.isFree(x2y2)) {
+                        return x2y2;
+                    }
+                };
+                if(crossLeftDown > 1) {
+                    if (board.isFree(x2y0)) {
+                        return x2y0;
+                    }
+                    if (board.isFree(x1y1)) {
+                        return x1y1;
+                    }
+                    if (board.isFree(x0y2)) {
+                        return x0y2;
+                    }
+                }
             }
         }
 
-        if (x0y1.getX() == oppoCoordinates.get(1).getX() && x0y1.getY() == oppoCoordinates.get(1).getY()) {
-            move = x2y0;
-            return move;
-        }
-         */
-
-        //Create fork
+        //Block
 
 
 
